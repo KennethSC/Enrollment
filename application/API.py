@@ -40,5 +40,5 @@ class GetUpdateDelete(Resource):
     #DELETE
     def delete(self, idx):
         User.objects(user_id=idx).delete()
-        return jsonify("User has been deleted")
+        return jsonify(message="User has been deleted")
 
