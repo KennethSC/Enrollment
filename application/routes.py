@@ -107,6 +107,30 @@ def enrollment():
         classes=classes
     )
 
+@app.route("/unenroll", methods=['POST'])
+def unenroll():
+    if not session.get('username'):
+        flash("You must be logged in to enroll in classes.", "danger") 
+        return redirect(url_for('login'))
+
+    courseID = request.form.get('courseID')
+    courseTitle = request.form.get('title')
+    user_id = session.get('user_id') 
+
+    if courseID:
+        if Enrollment.objects(user_id=user_id, courseID=courseID):
+            Enrollment.objects(user_id=user_id, courseID=courseID).delete()
+            flash(f"You have successfully unenrolled in course: {courseTitle} ", "success")
+            
+    classes = course_list(user_id)
+
+    return render_template(
+        "enrollment.html", 
+        enrollment=True, 
+        title="Enrollment",
+        classes=classes
+    )
+
 
 @app.route("/user")
 def user():

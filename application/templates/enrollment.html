@@ -18,6 +18,7 @@
             <th scope="col">Description</th>
             <th scope="col">Credits</th>
             <th scope="col">Term</th>
+            <th scope="col">Unenroll</th>
 
         </tr>
         </thead>
@@ -31,13 +32,20 @@
             <td>{{ class.r2["description"] }}</td>
             <td>{{ class.r2["credits"] }}</td>
             <td>{{ class.r2["term"] }}</td>
-            
+            <td>
+                <form action="{{ url_for('unenroll') }}" method="POST">
+                    <input type="hidden" name="courseID" value="{{ class.r2["courseID"] }}">
+                    <input type="hidden" name="title" value="{{ class.r2['title'] }}">
+                    <input type="hidden" name="term" value="{{ class.r2['term'] }}">
+                    <button>Unenroll</button>
+                </form>
+            </td>
         </tr>
         {% endfor %}
         
         </tbody>
-    </table>
-    {% endif %}
+        </table>
+        {% endif %}
     </div>
 </div>
 {% endblock %}
