@@ -4,7 +4,7 @@ This project is an example of a school portal where students can register, login
 ![alt text](https://github.com/KennethSC/Enrollment/blob/master/application/static/images/demo.gif)
 
 
-## API
+## REST API
 This project also feautures a REST API that was made using the Flask extenstion, flask-restplus. It retrieves the information of all the registered students such as the student id, email, and name. The API was also tested by using Postman.
 
 ![alt text](https://github.com/KennethSC/Enrollment/blob/master/application/static/images/api_demo.gif)
