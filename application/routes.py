@@ -4,7 +4,6 @@ from application.models import User, Course, Enrollment
 from application.forms import LoginForm, RegisterForm
 from application.course_list import course_list
 
-
 @app.route("/")
 @app.route("/index")
 @app.route("/home")
@@ -106,6 +105,7 @@ def enrollment():
         title="Enrollment",
         classes=classes
     )
+    
 
 @app.route("/unenroll", methods=['POST'])
 def unenroll():
@@ -130,7 +130,6 @@ def unenroll():
         title="Enrollment",
         classes=classes
     )
-
 
 @app.route("/user")
 def user():
